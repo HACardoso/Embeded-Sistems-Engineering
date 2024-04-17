@@ -1,0 +1,51 @@
+C51 COMPILER V9.60.7.0   PROJ1_MAIN                                                        04/15/2024 16:53:46 PAGE 1   
+
+
+C51 COMPILER V9.60.7.0, COMPILATION OF MODULE PROJ1_MAIN
+OBJECT MODULE PLACED IN .\Objects\Proj1_main.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE Proj1_main.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listing
+                    -s\Proj1_main.lst) TABS(2) OBJECT(.\Objects\Proj1_main.obj)
+
+line level    source
+
+   1          #include <REG51F.H>
+   2          
+   3          sbit BIT_0_P2 = P2^0;
+   4          
+   5          void main(){
+   6   1        while(1){
+   7   2          
+   8   2          int mask_0 =  1 << 0;
+   9   2          int masked_0 = P2 & mask_0;
+  10   2          int P2_zero_bit = masked_0 >> 0;
+  11   2          
+  12   2          int mask_1 =  1 << 1;
+  13   2          int masked_1 = P2 & mask_1;
+  14   2          int P2_one_bit = masked_1 >> 1;
+  15   2          
+  16   2          
+  17   2          int mask_LOW_P0 = P0 & 0x0F;
+  18   2          int mask_HIGH_P0 = P0 & 0xF0;
+  19   2          
+  20   2          int mask_HIGH_P1 = P1 & 0xF0;
+  21   2          
+  22   2          if(P2_zero_bit){
+  23   3            P1 = mask_HIGH_P1 << 4;
+  24   3            P1 = mask_LOW_P0 << 4;
+  25   3          }
+  26   2          
+  27   2          int mask_LOW_P1 = P1 & 0x0F;
+*** ERROR C141 IN LINE 27 OF Proj1_main.c: syntax error near 'int', expected '__asm'
+*** ERROR C202 IN LINE 27 OF Proj1_main.c: 'mask_LOW_P1': undefined identifier
+  28   2          
+  29   2          if (P2_one_bit){
+  30   3            P1 = mask_HIGH_P0 << 4;
+  31   3            P1 = mask_LOW_P1 << 4;
+*** ERROR C202 IN LINE 31 OF Proj1_main.c: 'mask_LOW_P1': undefined identifier
+  32   3          }
+  33   2          
+  34   2        }
+  35   1      
+  36   1      }
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  3 ERROR(S)
